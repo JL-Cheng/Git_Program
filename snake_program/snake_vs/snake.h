@@ -37,6 +37,7 @@ private:
     void moveDown();
 
     void handleCollisions();
+	
 
     QPointF        head;
     int            growing;
