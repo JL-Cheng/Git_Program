@@ -25,8 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
 	button2->setText("Exit");
 	button2->setGeometry(250, 350, 100, 50);
 	connect(button2, SIGNAL(clicked()), this, SLOT(close()));
-    
-    //initSceneBackground();
 	
 }
 
