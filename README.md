@@ -1,2 +1,2 @@
-# Git_Program
-A snake game by Qt
+# Qt_Program
+Some Qt program for fun.
