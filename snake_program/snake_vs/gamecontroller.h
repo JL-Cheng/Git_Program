@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QPushButton>
+#include "selectWindow.h"
+#include"MainWindow.h"
 
 class QGraphicsScene;
 class QKeyEvent;
@@ -15,7 +18,7 @@ class GameController : public QObject
 {
     Q_OBJECT
 public:
-    GameController(QGraphicsScene &scene, QObject *parent = 0);
+    GameController(QGraphicsScene &scene, MainWindow *parent = 0);
     ~GameController();
 
     void snakeAteFood(Snake *snake, Food *food);
@@ -26,6 +29,7 @@ public slots:
     void pause();
     void resume();
     void gameOver();
+	void gameStart();
 
 protected:
      bool eventFilter(QObject *object, QEvent *event);
@@ -38,6 +42,8 @@ private:
     QGraphicsScene &scene;
     Snake *snake;
     Wall *wall;
+	MainWindow *my_parent;
+	selectWindow *swd;
 
     bool game_pause;
 };

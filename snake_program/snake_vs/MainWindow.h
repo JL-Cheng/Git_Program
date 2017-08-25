@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include<QPushButton>
+#include"selectWindow.h"
 
 
 class QGraphicsScene;
@@ -17,11 +18,8 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-
 private slots:
     void adjustViewSize();
-
-private slots:
     void initScene();
     void initSceneBackground();
 
@@ -29,8 +27,9 @@ private:
     QGraphicsScene *scene;
     QGraphicsView *view;
     GameController *game;
-    QPushButton *button1;
-	QPushButton *button2;
+
+public:
+	selectWindow *swd;
 
 
 };

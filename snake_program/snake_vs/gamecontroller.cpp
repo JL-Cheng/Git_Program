@@ -6,23 +6,29 @@
 #include "food.h"
 #include "snake.h"
 #include "wall.h"
+#include"selectWindow.h"
 
-GameController::GameController(QGraphicsScene &scene, QObject *parent) :
+GameController::GameController(QGraphicsScene &scene, MainWindow *parent) :
     QObject(parent),
     scene(scene),
     snake(new Snake(*this)),
-    game_pause(false)
+    game_pause(false),
+	my_parent(parent)
 {
     timer.start( 1000/33 );
 
 
-    Food *a1 = new Food(0, -50);
+    /*Food *a1 = new Food(0, -50);
     scene.addItem(a1);
     wall = new Wall();
     scene.addItem(wall);
 
-    scene.addItem(snake);
+    scene.addItem(snake);*/
+
+	gameStart();
+
     scene.installEventFilter(this);
+
 
     resume();
 }
@@ -109,13 +115,20 @@ void GameController::addNewFood()
 
 void GameController::gameOver()
 {
-    scene.clear();
+	scene.clear();
+	my_parent->swd = new selectWindow(my_parent);
+	my_parent->swd->show();
+}
 
-    snake = new Snake(*this);
-    wall = new Wall();
-    scene.addItem(wall);
-    scene.addItem(snake);
-    addNewFood();
+void GameController::gameStart()
+{
+
+	snake = new Snake(*this);
+	wall = new Wall();
+	scene.addItem(wall);
+	scene.addItem(snake);
+	addNewFood();
+	delete my_parent->swd;
 }
 
 void GameController::pause()
