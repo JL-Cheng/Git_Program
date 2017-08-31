@@ -1,2 +1,2 @@
-# Qt_Program
-Some Qt program for fun.
+# Snake_Program
+A Snake game for fun.
